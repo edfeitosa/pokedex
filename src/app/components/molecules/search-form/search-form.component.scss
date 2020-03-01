@@ -1,6 +1,6 @@
 @mixin blocks($color) {
   width: 43%;
-  padding: 2.64vh 1.46vw;
+  padding: 15px;
   color: white;
   border-radius: 4px;
   background-color: $color;
@@ -8,7 +8,7 @@
 
 .formContent {
   background-color: rgba(129, 129, 129, 0.7);
-  padding: 2.64vh 1.46vw;
+  padding: 15px;
   border-radius: 5px;
   display: flex;
   justify-content: space-between;
