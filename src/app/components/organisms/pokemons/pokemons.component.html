@@ -1,9 +1,9 @@
 <div class="pokemonsList">
-  <span *ngFor="let item of dataSource;">
+  <span *ngFor="let item of dataSource | orderBy: id">
     <app-pokemon
-      id={{item.id}}
-      title={{item.name}}
-      image={{item.image}}
+      id="{{ item.id }}"
+      title="{{ item.name }}"
+      image="{{ item.image }}"
     ></app-pokemon>
   </span>
 </div>
