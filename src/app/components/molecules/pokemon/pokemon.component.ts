@@ -7,7 +7,9 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class PokemonComponent implements OnInit {
 
-  @Input() titleItem: string;
+  @Input() id: string;
+  @Input() title: string;
+  @Input() image: string;
 
   constructor() { }
   
