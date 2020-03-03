@@ -26,7 +26,6 @@ export class DetailsComponent implements OnInit {
     this.route.params.subscribe(res => (this.name = res.name));
     this._api.getPokemon(this.name).subscribe(
       res => {
-        console.log(res);
         this.id = res["id"];
         this.title = res["name"];
         this.image = `https://pokeres.bastionbot.org/images/pokemon/${res["id"]}.png`;
@@ -42,7 +41,9 @@ export class DetailsComponent implements OnInit {
   pokemonDescription(id: number) {
     this._api.spicePokemon(id).subscribe(
       res => {
-        this.description = res["flavor_text_entries"][1]["flavor_text"];
+        let item = res["flavor_text_entries"];
+        let desc = item.find(text => text.language.name === "en");
+        this.description = desc.flavor_text;
       },
       err => {
         this.error = err;
