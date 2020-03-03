@@ -4,8 +4,8 @@
 }
 
 body {
-  font-family: 'Roboto';
-  background-image: url('./assets/img/container_bg.png');
+  font-family: "Roboto";
+  background-image: url("./assets/img/container_bg.png");
   color: #818181;
 }
 
@@ -17,4 +17,8 @@ body {
 
 a {
   text-decoration: none;
+}
+
+p {
+  line-height: 150%;
 }

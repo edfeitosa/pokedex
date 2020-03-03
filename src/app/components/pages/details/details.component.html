@@ -1,5 +1,16 @@
 <div class="container">
   <div class="pokemon">
-    <h1>Nome do Pokemon</h1>
+    <h1>{{ title | ucfirst }}</h1>
+    <div class="rowContent">
+      <div class="leftColumn">
+        <div class="img">
+          <img src="{{ image }}" alt="{{ title }}" title="{{ title }}" />
+        </div>
+      </div>
+      <div class="rightColumn">
+        <div class="title">Descrição</div>
+        <p>{{ description }}</p>
+      </div>
+    </div>
   </div>
 </div>

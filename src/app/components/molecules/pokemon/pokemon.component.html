@@ -1,16 +1,18 @@
 <div class="pokemon">
   <div class="image">
-    <a routerLink="/details/{{id}}">
-      <img src="{{image}}" alt={{title}} title="Clique para mais detalhes" />
+    <a routerLink="/details/{{ title }}">
+      <img
+        src="{{ image }}"
+        alt="{{ title }}"
+        title="Clique para mais detalhes"
+      />
     </a>
   </div>
-  <div class="number">
-    Nº {{order}}
-  </div>
+  <div class="number">Nº {{ id | formatedOrder }}</div>
   <div class="title">
-    {{title | ucfirst}}
+    {{ title | ucfirst }}
   </div>
-  <a routerLink="/details/{{id}}">
+  <a routerLink="/details/{{ title }}">
     <div class="details">
       + Detalhes
     </div>

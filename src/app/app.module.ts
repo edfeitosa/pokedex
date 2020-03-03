@@ -12,6 +12,7 @@ import { SearchComponent } from "./components/pages/search/search.component";
 import { HeaderComponent } from "./components/molecules/header/header.component";
 import { SearchFormComponent } from "./components/molecules/search-form/search-form.component";
 import { UcfirstPipe } from './pipes/ucfirst.pipe';
+import { FormatedOrderPipe } from './pipes/formated-order.pipe';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { UcfirstPipe } from './pipes/ucfirst.pipe';
     SearchComponent,
     HeaderComponent,
     SearchFormComponent,
-    UcfirstPipe
+    UcfirstPipe,
+    FormatedOrderPipe
   ],
   imports: [HttpClientModule, BrowserModule, AppRoutingModule],
   providers: [],
