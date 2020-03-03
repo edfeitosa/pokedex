@@ -42,9 +42,11 @@ export class PokemonsComponent implements OnInit {
       res => {
         this.dataSource.push({
           id: res["id"],
+          order: this.formatedNumber(res["id"]),
           name: res["name"],
           image: `https://pokeres.bastionbot.org/images/pokemon/${res["id"]}.png`
         });
+        this.sortedArray(this.dataSource);
       },
       err => {
         this.dataSource = err;
@@ -52,4 +54,19 @@ export class PokemonsComponent implements OnInit {
       }
     );
   }
+
+  sortedArray(array: Array<any>) {
+    array.sort((a: any, b: any) => {
+      if (a["id"] > b["id"]) { return 1; }
+      if (a["id"] < b["id"]) { return -1; }
+      return 0;
+    });
+  }
+
+  formatedNumber(id: number) {
+    if (id <= 9) { return `00${id}` }
+    if (id > 9 && id <= 99) { return `0${id}` }
+    return id;
+  }
+
 }
