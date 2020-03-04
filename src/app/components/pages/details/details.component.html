@@ -8,8 +8,27 @@
         </div>
       </div>
       <div class="rightColumn">
-        <div class="title">Descrição</div>
-        <p>{{ description }}</p>
+
+        <div class="informationBlock">
+          <div class="title">Nº de Ordem</div>
+          <div class="informBig">{{ id | formatedOrder }}</div>
+        </div>
+
+        <div class="informationBlock">
+          <div class="title">Descrição</div>
+          <p>{{ description }}</p>
+        </div>
+
+        <div class="informationBlock">
+          <div class="title">Peso</div>
+          <div class="informBig">{{ weight | weight }}</div>
+        </div>
+
+        <div class="informationBlock">
+          <div class="title">Altura</div>
+          <div class="informBig">{{ height }}</div>
+        </div>
+
       </div>
     </div>
   </div>

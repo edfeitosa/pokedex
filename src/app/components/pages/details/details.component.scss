@@ -27,17 +27,26 @@
     }
 
     > .rightColumn {
-      width: 55%;
+      width: 59%;
+      display: flex;
+      flex-flow: column;
+      justify-content: space-between;
 
-      p {
-        margin-bottom: 30px;
+      .informationBlock {
+        width: 100%;
+        position: relative;
+      }
+
+      .informBig {
+        font-size: 1.5rem;
+        font-weight: 700;
       }
 
       .title {
         color: #ccc;
-        font-weight: 700;
-        font-size: 0.75rem;
-        margin-bottom: 15px;
+        font-weight: 900;
+        font-size: 0.85rem;
+        margin-bottom: 5px;
       }
     }
   }

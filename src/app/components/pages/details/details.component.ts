@@ -16,6 +16,10 @@ export class DetailsComponent implements OnInit {
   description: string;
   error: string;
   image: string;
+  weight: string;
+  height: string;
+  types: Array<any>;
+  sprites: Array<any>;
   isLoadingResults: boolean;
 
   ngOnInit() {
@@ -28,6 +32,8 @@ export class DetailsComponent implements OnInit {
       res => {
         this.id = res["id"];
         this.title = res["name"];
+        this.weight = res["weight"];
+        this.height = res["height"];
         this.image = `https://pokeres.bastionbot.org/images/pokemon/${res["id"]}.png`;
         this.pokemonDescription(res["id"]);
       },

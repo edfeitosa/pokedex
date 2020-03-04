@@ -13,6 +13,8 @@ import { HeaderComponent } from "./components/molecules/header/header.component"
 import { SearchFormComponent } from "./components/molecules/search-form/search-form.component";
 import { UcfirstPipe } from './pipes/ucfirst.pipe';
 import { FormatedOrderPipe } from './pipes/formated-order.pipe';
+import { HeightPipe } from './pipes/height.pipe';
+import { WeightPipe } from './pipes/weight.pipe';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ import { FormatedOrderPipe } from './pipes/formated-order.pipe';
     HeaderComponent,
     SearchFormComponent,
     UcfirstPipe,
-    FormatedOrderPipe
+    FormatedOrderPipe,
+    HeightPipe,
+    WeightPipe
   ],
   imports: [HttpClientModule, BrowserModule, AppRoutingModule],
   providers: [],
