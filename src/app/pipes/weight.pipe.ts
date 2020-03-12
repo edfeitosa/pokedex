@@ -8,16 +8,18 @@ export class WeightPipe implements PipeTransform {
   transform(value: any, args?: any): any {
 
     function formatedWeight(weight:string) {
-      let valueWeight = parseInt(weight, 10);
-      if (valueWeight < 10) {
-        return `${(valueWeight * 100)} gramas`;
-      } else {
-
+      const valueInInt = parseInt(weight, 10);
+      if (valueInInt < 10) {
+        let valueWeight = valueInInt * 10;
+        return `${valueWeight} g`;
       }
+      let weightCalculate = valueInInt / 10;
+      let valueWeight = weightCalculate.toString().replace(".", ",");
+      return `${valueWeight} kg`;
     }
 
     if (value) {
-      return parseFloat(value).toFixed(1);
+      return formatedWeight(value);
     }
   }
 

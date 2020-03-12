@@ -1,6 +1,16 @@
 <div class="container">
   <div class="pokemon">
-    <h1>{{ title | ucfirst }}</h1>
+    <h1>
+      {{ title | ucfirst }}
+      <span style="color: #ccc;">
+        | nº {{ id | formatedOrder }}
+      </span>
+    </h1>
+
+    <a href="javascript:history.back()">
+      <div class="closeButton" title="Fechar card">x</div>
+    </a>
+
     <div class="rowContent">
       <div class="leftColumn">
         <div class="img">
@@ -8,11 +18,6 @@
         </div>
       </div>
       <div class="rightColumn">
-
-        <div class="informationBlock">
-          <div class="title">Nº de Ordem</div>
-          <div class="informBig">{{ id | formatedOrder }}</div>
-        </div>
 
         <div class="informationBlock">
           <div class="title">Descrição</div>
@@ -26,7 +31,14 @@
 
         <div class="informationBlock">
           <div class="title">Altura</div>
-          <div class="informBig">{{ height }}</div>
+          <div class="informBig">{{ height | height }}</div>
+        </div>
+
+        <div class="informationBlock">
+          <div class="title">Tipo</div>
+          <span *ngFor="let item of types">
+            <div class="types">{{ item | ucfirst }}</div>
+          </span>
         </div>
 
       </div>

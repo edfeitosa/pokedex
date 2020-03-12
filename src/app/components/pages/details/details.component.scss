@@ -5,6 +5,30 @@
   border: 2px solid #ccc;
   border-radius: 4px;
 
+  .closeButton {
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin: 20px 20px 0px 0px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    color: #fff;
+    background-color: #a67a3d;
+    text-align: center;
+    font-weight: 900;
+    font-size: 1.5rem;
+    cursor: pointer;
+
+    &:hover {
+      background-color: rgba(166, 122, 61, .75);
+    }
+
+    &:active {
+      background-color: rgba(166, 122, 61, .50);
+    }
+  }
+
   > .rowContent {
     margin-top: 20px;
     display: flex;
@@ -47,6 +71,19 @@
         font-weight: 900;
         font-size: 0.85rem;
         margin-bottom: 5px;
+      }
+
+      .types {
+        color: #fff;
+        background-color: #a67a3d;
+        float: left;
+        font-size: 0.85rem;
+        font-weight: 700;
+        width: 120px;
+        text-align: center;
+        padding: 5px 0px;
+        margin-right: 10px;
+        border-radius: 4px;
       }
     }
   }

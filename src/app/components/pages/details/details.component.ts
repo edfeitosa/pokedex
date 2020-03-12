@@ -19,7 +19,6 @@ export class DetailsComponent implements OnInit {
   weight: string;
   height: string;
   types: Array<any>;
-  sprites: Array<any>;
   isLoadingResults: boolean;
 
   ngOnInit() {
@@ -36,6 +35,7 @@ export class DetailsComponent implements OnInit {
         this.height = res["height"];
         this.image = `https://pokeres.bastionbot.org/images/pokemon/${res["id"]}.png`;
         this.pokemonDescription(res["id"]);
+        this.types = this.pokemonTypes(res["types"]);
       },
       err => {
         this.error = err;
@@ -56,5 +56,13 @@ export class DetailsComponent implements OnInit {
         this.isLoadingResults = false;
       }
     );
+  }
+
+  pokemonTypes(types: Array<any>) {
+    let typesList = [];
+    types.map(type => {
+      typesList.push(type["type"]["name"]);
+    });
+    return typesList;
   }
 }

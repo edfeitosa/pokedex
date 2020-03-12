@@ -7,15 +7,19 @@ export class HeightPipe implements PipeTransform {
 
   transform(value: any, args?: any): any {
 
-    function formatedWeight(weight:string) {
-      let valueWeight = parseInt(weight, 10);
-      if (valueWeight < 10) {
-        return `${(valueWeight * 10)} cm`;
+    function formatedHeight(weight:string) {
+      const valueInInt = parseInt(weight, 10);
+      if (valueInInt < 10) {
+        let valueHeight = valueInInt * 10;
+        return `${valueHeight} cm`;
       }
+      let heightCalculate = valueInInt / 10;
+      let valueHeight = heightCalculate.toString().replace(".", ",");
+      return `${valueHeight} m`;
     }
 
     if (value) {
-      return value.charAt(0).toUpperCase() + value.toLowerCase().slice(1);
+      return formatedHeight(value);
     }
   }
 
