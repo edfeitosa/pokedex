@@ -8,9 +8,7 @@ import { PokemonsComponent } from "./components/organisms/pokemons/pokemons.comp
 import { PokemonComponent } from "./components/molecules/pokemon/pokemon.component";
 import { HomeComponent } from "./components/pages/home/home.component";
 import { DetailsComponent } from "./components/pages/details/details.component";
-import { SearchComponent } from "./components/pages/search/search.component";
 import { HeaderComponent } from "./components/molecules/header/header.component";
-import { SearchFormComponent } from "./components/molecules/search-form/search-form.component";
 import { UcfirstPipe } from './pipes/ucfirst.pipe';
 import { FormatedOrderPipe } from './pipes/formated-order.pipe';
 import { HeightPipe } from './pipes/height.pipe';
@@ -23,9 +21,7 @@ import { WeightPipe } from './pipes/weight.pipe';
     PokemonComponent,
     HomeComponent,
     DetailsComponent,
-    SearchComponent,
     HeaderComponent,
-    SearchFormComponent,
     UcfirstPipe,
     FormatedOrderPipe,
     HeightPipe,
