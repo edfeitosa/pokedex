@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { ActivatedRoute } from "@angular/router";
 
 import { PokemonsService } from "../../../services/pokemons.service";
 
@@ -12,21 +13,31 @@ export class PokemonsComponent implements OnInit {
   isLoadingResults: boolean;
   previous: string;
   next: string;
+  page: string;
 
-  constructor(private _api: PokemonsService) {}
+  constructor(
+    private route: ActivatedRoute,
+    private _api: PokemonsService
+  ) {}
 
   ngOnInit() {
     this.getPokemons();
   }
 
   getPokemons() {
-    this._api.getPokemons(0, 20).subscribe(
+    this.definePage();
+
+    let actualPage = this.page === "1"
+      ? parseInt(this.page, 10) - 1
+      : parseInt(this.page, 10) * 10;
+
+    this._api.getPokemons(actualPage, 20).subscribe(
       res => {
         res["results"].map((item: any) => {
           this.getPokemon(item["name"]);
         });
-        this.previous = res["previous"];
-        this.next = res["next"];
+        this.previous = this.previousPage(res["previous"]);
+        this.next = this.nextPage(res["next"]);
         this.isLoadingResults = false;
       },
       err => {
@@ -64,5 +75,27 @@ export class PokemonsComponent implements OnInit {
       }
       return 0;
     });
+  }
+
+  definePage() {
+    let page: string;
+    this.route.params.subscribe(res => (page = res.page));
+    page
+      ? this.page = page
+      : this.page = "1";
+  }
+
+  nextPage(next: string) {
+    if (next) {
+      return (parseInt(this.page, 10) + 1).toString();
+    }
+    return null;
+  }
+
+  previousPage(previous: string) {
+    if (previous) {
+      return (parseInt(this.page, 10) - 1).toString();
+    }
+    return null;
   }
 }

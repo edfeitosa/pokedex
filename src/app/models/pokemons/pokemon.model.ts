@@ -4,5 +4,4 @@ export class PokemonModel {
   weigth: string;
   height: string;
   types: Array<string>;
-  sprites: Array<string>;
 }
