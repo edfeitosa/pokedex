@@ -13,6 +13,14 @@ body {
   width: 74.96vw;
   position: relative;
   margin: 0px auto;
+
+  @media only screen and (max-width: 480px) {
+    width: 90%;
+  }
+
+  @media only screen and (max-width: 800px) {
+    width: 90%;
+  }
 }
 
 a {
