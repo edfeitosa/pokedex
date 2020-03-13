@@ -14,6 +14,7 @@ export class PokemonsComponent implements OnInit {
   previous: string;
   next: string;
   page: string;
+  reload: boolean;
 
   constructor(
     private route: ActivatedRoute,
@@ -31,7 +32,7 @@ export class PokemonsComponent implements OnInit {
       ? parseInt(this.page, 10) - 1
       : parseInt(this.page, 10) * 10;
 
-    this._api.getPokemons(actualPage, 20).subscribe(
+    this._api.getPokemons(actualPage, 10).subscribe(
       res => {
         res["results"].map((item: any) => {
           this.getPokemon(item["name"]);
@@ -97,5 +98,10 @@ export class PokemonsComponent implements OnInit {
       return (parseInt(this.page, 10) - 1).toString();
     }
     return null;
+  }
+
+  handleClickOnLink(event: Event) {
+    let pageRedirect = event.target["id"];
+    window.location.replace(`/page/${pageRedirect}`);
   }
 }

@@ -1,3 +1,17 @@
+@mixin pageLink($color1, $color2) {
+  position: relative;
+  width: 100px;
+  text-align: center;
+  padding: 10px 0px;
+  font-weight: 700;
+  margin: 0px 10px 0px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  color: $color1;
+  border: 1px solid $color1;
+  background-color: $color2;
+}
+
 .pokemonsList {
   width: 100%;
   display: flex;
@@ -7,5 +21,23 @@
 
 .pagination {
   width: 100%;
-  margin: 30px 0px;
+  margin: 10px 0px 30px 0px;
+  display: flex;
+  justify-content: center;
+
+  .pageLink {
+    @include pageLink(rgb(166, 164, 45), rgb(255, 254, 195));
+
+    &:hover {
+      background-color:rgb(255, 254, 223);
+    }
+
+    &:active {
+      background-color:rgb(255, 254, 238);
+    }
+  }
+
+  .actualPage {
+    @include pageLink(#ccc, #f1f1f1);
+  }
 }

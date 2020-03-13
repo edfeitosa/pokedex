@@ -9,11 +9,16 @@
 </div>
 
 <div class="pagination">
-  {{ previous }} {{ next }}
+  <a *ngIf="previous" class="pageLink" routerLink="/">
+    Início
+  </a>
+  <div *ngIf="previous" class="pageLink" id="{{previous}}" (click)="handleClickOnLink($event)">
+    {{ previous }}
+  </div>
+  <div class="actualPage">
+    {{ page }}
+  </div>
+  <div *ngIf="next" class="pageLink" id="{{next}}" (click)="handleClickOnLink($event)">
+    {{ next }}
+  </div>
 </div>
-
-<!-- <div *ngFor="let item of dataSource;">
-  <p>{{item.name}}</p>
-</div> -->
-
-<!-- <app-pokemon titleItem="Eduardo"></app-pokemon> -->
